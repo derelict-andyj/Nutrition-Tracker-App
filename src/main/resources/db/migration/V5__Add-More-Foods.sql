@@ -1,0 +1,2 @@
+INSERT INTO f_food (name, description, calories, fat, protien, carbs, servings) VALUES ('Bacon', 'Sent from the heavens', '44', '3', '3', '0', '1');
+INSERT INTO f_food (name, description, calories, fat, protien, carbs, servings) VALUES ('String Cheese', 'Cheesers', '80', '5', '7', '1', '1');
