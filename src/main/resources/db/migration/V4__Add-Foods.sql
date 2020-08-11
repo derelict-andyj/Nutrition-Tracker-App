@@ -1,0 +1,2 @@
+INSERT INTO f_food (name, description, calories, fat, protien, carbs, servings) VALUES ('Tomato', 'Fruit or Veggie?', '22', '0', '1', '5', '1');
+INSERT INTO f_food (name, description, calories, fat, protien, carbs, servings) VALUES ('Apple', 'Sweet delicious', '22', '0',  '0', '25', '1');
