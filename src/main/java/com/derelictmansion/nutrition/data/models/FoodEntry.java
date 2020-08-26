@@ -46,6 +46,10 @@ public class FoodEntry {
 
   protected FoodEntry() {}
 
+  public Long getId() {
+    return id;
+  }
+
   public int getCarbs() {
     return carbs;
   }
