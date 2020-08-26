@@ -1,4 +1,4 @@
-package com.example.Nutrition.Tracker.App.controller;
+package com.derelictmansion.nutrition.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -6,8 +6,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-import com.example.Nutrition.Tracker.App.data.dao.UserDao;
-import com.example.Nutrition.Tracker.App.data.models.User;
+import com.derelictmansion.nutrition.data.dao.UserDao;
+import com.derelictmansion.nutrition.data.models.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

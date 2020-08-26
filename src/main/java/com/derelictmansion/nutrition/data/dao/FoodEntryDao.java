@@ -1,6 +1,6 @@
-package com.example.Nutrition.Tracker.App.data.dao;
+package com.derelictmansion.nutrition.data.dao;
 
-import com.example.Nutrition.Tracker.App.data.models.FoodEntry;
+import com.derelictmansion.nutrition.data.models.FoodEntry;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.Query;

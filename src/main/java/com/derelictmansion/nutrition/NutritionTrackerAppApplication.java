@@ -1,4 +1,4 @@
-package com.example.Nutrition.Tracker.App;
+package com.derelictmansion.nutrition;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
