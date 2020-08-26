@@ -48,4 +48,21 @@ public class FoodEntryController {
   public void addFoodEntry(@Valid @RequestBody final FoodEntry foodEntry) {
     foodEntryDao.save(foodEntry);
   }
+
+    //Update food entries
+    @PutMapping(value="/{id}", consumes = "application/json", produces = "application/json") 
+
+    public FoodEntry updateFoodEntry(@PathVariable final Long id, @Valid @RequestBody final FoodEntry foodEntry) {
+
+    FoodEntry updatedFoodEntry = foodEntryDao.getById(id);
+
+    updatedFoodEntry.setCalories(foodEntry.getCalories());
+    updatedFoodEntry.setCarbs(foodEntry.getCarbs());
+    updatedFoodEntry.setDescription(foodEntry.getDescription());
+    updatedFoodEntry.setFat(foodEntry.getFat());
+    updatedFoodEntry.setProtien(foodEntry.getProtien());
+    updatedFoodEntry.setName(foodEntry.getName());
+
+    return foodEntryDao.save(updatedFoodEntry);
+  }
 }
