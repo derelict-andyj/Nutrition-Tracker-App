@@ -1,9 +1,9 @@
-package com.example.Nutrition.Tracker.App.data.dao;
+package com.derelictmansion.nutrition.data.dao;
 
 
 import java.util.List;
 
-import com.example.Nutrition.Tracker.App.data.models.User;
+import com.derelictmansion.nutrition.data.models.User;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

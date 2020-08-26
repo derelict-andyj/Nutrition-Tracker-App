@@ -1,4 +1,4 @@
-package com.example.Nutrition.Tracker.App.data.models;
+package com.derelictmansion.nutrition.data.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.example.Nutrition.Tracker.App;
+package com.derelictmansion.nutrition;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

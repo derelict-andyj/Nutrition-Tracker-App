@@ -1,9 +1,9 @@
-package com.example.Nutrition.Tracker.App.controller;
+package com.derelictmansion.nutrition.controller;
 
 import java.util.List;
 
-import com.example.Nutrition.Tracker.App.data.dao.FoodEntryDao;
-import com.example.Nutrition.Tracker.App.data.models.FoodEntry;
+import com.derelictmansion.nutrition.data.dao.FoodEntryDao;
+import com.derelictmansion.nutrition.data.models.FoodEntry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;

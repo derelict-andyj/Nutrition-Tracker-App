@@ -8,11 +8,11 @@
 		<version>2.3.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>com.derelictmansion</groupId>
 	<artifactId>Nutrition-Tracker-App</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Nutrition-Tracker-App</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Nutrition Tracker API</description>
 
 	<properties>
 		<java.version>11</java.version>
