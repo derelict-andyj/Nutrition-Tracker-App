@@ -1,15 +1,12 @@
 package com.derelictmansion.nutrition.controller;
 
-import java.util.List;
-
+import java.util.Optional;
 import javax.validation.Valid;
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 import com.derelictmansion.nutrition.data.dao.FoodEntryDao;
 import com.derelictmansion.nutrition.data.models.FoodEntry;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,17 +27,17 @@ public class FoodEntryController {
 
   @GetMapping(value = "/{id}", produces = "application/json")
   public FoodEntry getFoodEntry(@PathVariable final Long id) {
-    FoodEntry founFoodEntry = foodEntryDao.getById(id);
-    if(founFoodEntry != null) {
-      return founFoodEntry;
-      }else {
+    Optional<FoodEntry> founFoodEntry = foodEntryDao.findById(id);
+    if(founFoodEntry.isPresent()) {
+      return founFoodEntry.get();
+    } else {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Food not found.");
     }
   }
 
   @GetMapping(produces = "application/json")
-  public List<FoodEntry> getFoods(){
-    return foodEntryDao.findAllFoods();
+  public Iterable<FoodEntry> getFoods(){
+    return foodEntryDao.findAll();
   }
 
   //Add food entries
@@ -49,20 +46,28 @@ public class FoodEntryController {
     foodEntryDao.save(foodEntry);
   }
 
-    //Update food entries
-    @PutMapping(value="/{id}", consumes = "application/json", produces = "application/json") 
+  //Update food entries
+  @PutMapping(value="/{id}", consumes = "application/json", produces = "application/json") 
+  public FoodEntry updateFoodEntry(@PathVariable final Long id, @Valid @RequestBody final FoodEntry foodEntry) {
 
-    public FoodEntry updateFoodEntry(@PathVariable final Long id, @Valid @RequestBody final FoodEntry foodEntry) {
+    Optional<FoodEntry> optionalFoodEntry = foodEntryDao.findById(id);
+    return optionalFoodEntry.map(updateFoodEntry -> {
+      updateFoodEntry.setCalories(foodEntry.getCalories());
+      updateFoodEntry.setCarbs(foodEntry.getCarbs());
+      updateFoodEntry.setDescription(foodEntry.getDescription());
+      updateFoodEntry.setFat(foodEntry.getFat());
+      updateFoodEntry.setProtien(foodEntry.getProtien());
+      updateFoodEntry.setName(foodEntry.getName());
+      return foodEntryDao.save(updateFoodEntry);
+    }).orElseThrow(() ->
+      new ResponseStatusException(HttpStatus.NOT_FOUND, "Food not found.")
+    );
+    
+  }
 
-    FoodEntry updatedFoodEntry = foodEntryDao.getById(id);
-
-    updatedFoodEntry.setCalories(foodEntry.getCalories());
-    updatedFoodEntry.setCarbs(foodEntry.getCarbs());
-    updatedFoodEntry.setDescription(foodEntry.getDescription());
-    updatedFoodEntry.setFat(foodEntry.getFat());
-    updatedFoodEntry.setProtien(foodEntry.getProtien());
-    updatedFoodEntry.setName(foodEntry.getName());
-
-    return foodEntryDao.save(updatedFoodEntry);
+  //Delete food entries
+  @DeleteMapping(value = "/{id}", produces = "application/json")
+  public void deleteFoodEntry(@PathVariable final Long id) {
+    foodEntryDao.deleteById(id);
   }
 }
